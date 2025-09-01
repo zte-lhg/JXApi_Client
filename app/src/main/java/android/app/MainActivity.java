@@ -5,19 +5,14 @@ import android.annotation.SuppressLint;
 import android.app.util.AIDLUtil;
 import android.app.util.SerialPortUtil;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 //import com.app.sdk_api_service.IAidlInterface;
@@ -26,16 +21,12 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 //import androidx.appcompat.app.AppCompatActivity;
 
-
 /*
-* api 调用说明
-* 通过aidl服务，后台已有aidl服务，本项目  文件IAidInterface.aidl 文件需要和系统中的aidl文件一致，需要添加api，请沟通
-* 同时 AIDLUTIL.java 文件也需要添加对应的函数
-* 本项目为系统中的   基础系统服务  app的源码，请结合参考。
-* */
-
+ * 本项目为 晶心安卓单板系统 API 测试参考调用方法。
+ * 安装方法 ：adb install -t ./app/build/outputs/apk/debug/JXApiTest.apk
+ * 启动方法 ：adb shell am start -n android.app/.MainActivity
+ */
 public class MainActivity extends Activity implements View.OnClickListener {
-
     private String TAG = "Sdk_Client";
     private ListView listView;
     private String[] data = {"背光"};
@@ -72,8 +63,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         }, 50); // 50ms 延迟
 
-
-
         //界面初始化
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 MainActivity.this, android.R.layout.simple_list_item_1, data);
@@ -83,12 +72,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         //打开串口
         openSerial();
-
-
     }
-
-
-
 
     public void openSerial() {
         try {
@@ -122,7 +106,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void init_ttyAMA1() {
-
         //false 为使能ttyAMA1
         Log.e(TAG, "使能串口ttyAMA1");
         try {
@@ -134,10 +117,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } finally {
             System.out.println("autoservice  无论是否发生异常，finally 块中的代码都会执行。");
         }
-
-
     }
-
 
     private void initClick() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -162,7 +142,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         });
     }
-
 
     @SuppressLint("WrongConstant")
     void use1() {
@@ -285,7 +264,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //
 //                break;
 
-
         }
     }
 
@@ -322,7 +300,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Log.i(TAG, "Destroy!");
         //解绑服务
         AIDLUtil.getInstance().unbindService(MainActivity.this);
-
-
     }
 }

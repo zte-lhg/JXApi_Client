@@ -1,7 +1,5 @@
 package android.app.util;
-
 import android.util.Log;
-
 
 /**
  * Created by Norton on 2017/6/16.
@@ -189,6 +187,4 @@ public class AryChangeManager {
         }
         return sb.toString();
     }
-
-
 }

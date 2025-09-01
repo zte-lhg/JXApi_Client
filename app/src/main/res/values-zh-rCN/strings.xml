@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">基础系统服务</string>
+    <string name="app_name">晶心系统API</string>
     <string name="permission_description">the common permission of TV app</string>
-    <string name="backlight">背光</string>
-
+    <string name="backlight">背光测试</string>
 
     <string name="factory_menu">工厂菜单</string>
 </resources>

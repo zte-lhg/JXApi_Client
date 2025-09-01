@@ -1,13 +1,6 @@
 package android.app;
 
-
-
 import android.app.util.AIDLUtil;
-
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -17,16 +10,12 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-
 public class item_backlight extends Activity implements View.OnClickListener {
     private static final String TAG = "item_backlight";
     private SeekBar seekbar_backlight;
     private TextView tv_brightness;
-
     private Button btn_openBacklight;
     private Button btn_closeBacklight;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +26,6 @@ public class item_backlight extends Activity implements View.OnClickListener {
         //绑定api服务
        AIDLUtil.getInstance().bindService(item_backlight.this);
 
-
         this.seekbar_backlight = (SeekBar) findViewById(R.id.seekbar_backlight);
 
         btn_openBacklight=(Button) findViewById(R.id.btn_openBacklight);
@@ -46,9 +34,6 @@ public class item_backlight extends Activity implements View.OnClickListener {
         btn_closeBacklight.setOnClickListener(this);
 
         tv_brightness = findViewById(R.id.tv_progress);
-
-
-
 
         //初始化
         //需要延时一下，绑定api服务需要时间
@@ -107,24 +92,16 @@ public class item_backlight extends Activity implements View.OnClickListener {
                         return;
                 }
             }
-
-
         });
-
-
     }
     @Override
     public void onClick(View v) {
-
-
         switch (v.getId()) {
             case R.id.btn_closeBacklight:
-
                 try {
                     Log.i(TAG, "关闭背光");
                     AIDLUtil.getInstance().ax_EnableBacklight(false);
                 } catch (Exception e) {
-
                     e.printStackTrace();
                 }
 
@@ -134,19 +111,13 @@ public class item_backlight extends Activity implements View.OnClickListener {
                     Log.i(TAG, "打开背光");
                     AIDLUtil.getInstance().ax_EnableBacklight(true);
                 } catch (Exception e) {
-
                     e.printStackTrace();
                 }
                 break;
             default:
                 break;
         }
-
     }
-
-
-
-
 
     @Override
     protected void onDestroy() {
@@ -154,7 +125,5 @@ public class item_backlight extends Activity implements View.OnClickListener {
         Log.i(TAG, "Destroy!");
         //解绑服务
         AIDLUtil.getInstance().unbindService(item_backlight.this);
-
-
     }
 }

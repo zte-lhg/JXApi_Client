@@ -12,7 +12,6 @@ import com.app.sdk_api_service.IAidlInterface;
 
 import androidx.annotation.NonNull;
 
-
 public class AIDLUtil {
     private static AIDLUtil aidlUtil;
     private IAidlInterface iService;
@@ -229,13 +228,4 @@ public class AIDLUtil {
         return 0 ;
     }
   */
-
-
-
-
-
-
-
-
-
 }

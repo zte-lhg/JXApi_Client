@@ -30,11 +30,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-
-/**
- * Created by Norton on 2017/6/6.
- */
-
 public class SerialPortUtil {
 
     public static SerialPort serialPort = null;
@@ -60,7 +55,6 @@ public class SerialPortUtil {
         flag = true;
         // receiveSerialPort(context);
     }
-
 
     /**
      * 关闭串口的方法
@@ -108,7 +102,6 @@ public class SerialPortUtil {
             e.printStackTrace();
         }
     }
-
 
     /**
      * 发送串口数据的方法
@@ -186,8 +179,6 @@ public class SerialPortUtil {
         }
     }
 
-
-
     /**
      * 接收串口数据的方法
      */
@@ -196,8 +187,6 @@ public class SerialPortUtil {
         final Handler handler = new Handler(context.getMainLooper()) {
             @Override
             public void handleMessage(Message msg) {
-
-
                 StringBuilder buffer = new StringBuilder();
                 for (int i : values) {
                     buffer.append(AryChangeManager.dexToHex(i));
@@ -560,6 +549,4 @@ public class SerialPortUtil {
         //启动接收线程
         receiveThread.start();
     }
-
-
 }
