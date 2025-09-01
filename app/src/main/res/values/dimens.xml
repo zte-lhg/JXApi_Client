@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--    自己添加的大小，dp为相对大小，适应不同分辨率-->
+    <!--    <dimen name="sy_1">1dp</dimen>-->
+    <!--    <dimen name="sy_2">2dp</dimen>-->
+    <!--    <dimen name="sy_5">5dp</dimen>-->
+    <!--    <dimen name="sy_10">10dp</dimen>-->
+    <!--    <dimen name="sy_15">15dp</dimen>-->
+    <!--    <dimen name="sy_20">20dp</dimen>-->
+    <!--    <dimen name="sy_25">25dp</dimen>-->
+    <!--    <dimen name="sy_30">30dp</dimen>-->
+    <!--    <dimen name="sy_40">40dp</dimen>-->
+        <dimen name="syh_60">60dp</dimen>
+    <dimen name="sy_78">78dp</dimen>
+    <!--    <dimen name="sy_100">100dp</dimen>-->
+    <dimen name="sy_120">120dp</dimen>
+    <dimen name="sy_156">156dp</dimen>
+    <dimen name="sy_160">160dp</dimen>
+    <dimen name="sy_200">200dp</dimen>
+    <dimen name="sy_220">220dp</dimen>
+    <dimen name="sy_224">224dp</dimen>
+    <dimen name="sy_250">230dp</dimen>
+    <dimen name="sy_280">280dp</dimen>
+    <dimen name="sy_300">300dp</dimen>
+    <dimen name="sy_384">384dp</dimen>
+    <dimen name="sy_205">205dp</dimen>
+    <dimen name="sy_400">400dp</dimen>
+    <dimen name="sy_410">410dp</dimen>
+    <dimen name="sy_512">512dp</dimen>
+
+
+    <!--   字体大小-->
+    <dimen name="sy_ps_14">14.0sp</dimen>
+    <dimen name="sy_ps_34">34.0sp</dimen>
+
+
+    <!--   add settings-->
+    <dimen name="ss_0">0.0dp</dimen>
+    <dimen name="ss_1">1.0dp</dimen>
+    <dimen name="ss_2">2.0dp</dimen>
+    <dimen name="ss_5">5.0dp</dimen>
+    <dimen name="ss_10">10.0dp</dimen>
+    <dimen name="ss_15">15.0dp</dimen>
+    <dimen name="ss_20">20.0dp</dimen>
+    <dimen name="ss_22">22.0dp</dimen>
+    <dimen name="ss_30">30.0dp</dimen>
+    <dimen name="ss_34">34.0dp</dimen>
+    <dimen name="ss_40">40.0dp</dimen>
+    <dimen name="ss_42">42.0dp</dimen>
+    <dimen name="ss_45">45.0dp</dimen>
+    <dimen name="ss_55">55.0dp</dimen>
+    <dimen name="ss_65">65.0dp</dimen>
+
+
+    <dimen name="ss_ps_14">14.0sp</dimen>
+
+    <!--   layout_quick-->
+    <dimen name="sy_509">509dp</dimen>
+    <dimen name="sy_331">331dp</dimen>
+    <dimen name="sy_10">10dp</dimen>
+    <dimen name="sy_135">135dp</dimen>
+    <dimen name="sy_40">40dp</dimen>
+    <dimen name="sy_45">45dp</dimen>
+    <dimen name="sy_270">270dp</dimen>
+
+    <dimen name="sy_0">0dp</dimen>
+    <dimen name="sy_20">20dp</dimen>
+    <dimen name="sy_30">30dp</dimen>
+    <dimen name="sy_82">82dp</dimen>
+    <dimen name="sy_24">24dp</dimen>
+    <dimen name="sy_2">2dp</dimen>
+    <dimen name="sy_450">450dp</dimen>
+    <dimen name="sy_1">1dp</dimen>
+    <dimen name="sy_15">15dp</dimen>
+    <dimen name="sy_87">87dp</dimen>
+    <dimen name="sy_16">16dp</dimen>
+    <dimen name="sy_17">17dp</dimen>
+    <dimen name="sy_18">18dp</dimen>
+    <dimen name="sy_12">12dp</dimen>
+    <dimen name="sy_22">22dp</dimen>
+    <dimen name="sy_28">28dp</dimen>
+    <dimen name="sy_5">5dp</dimen>
+    <dimen name="sy_6">6dp</dimen>
+    //522
+    <dimen name="sy_272">272dp</dimen>
+    <dimen name="sy_261">261dp</dimen>
+    <dimen name="sy_285">285dp</dimen>
+
+    <dimen name="sy_29">29dp</dimen>
+    <dimen name="sy_35">35dp</dimen>
+    <dimen name="sy_100">100dp</dimen>
+    <dimen name="sy_3">3dp</dimen>
+    <dimen name="sy_60">60dp</dimen>
+    <dimen name="sy_25">25dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+</resources>

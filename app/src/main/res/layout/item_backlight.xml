@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+
+    <TextView
+        android:id="@+id/backlight"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/syh_60"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:background="@color/daoqi"
+        android:layout_gravity="center_vertical"
+        android:textSize="24.0sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:text="@string/backlight" />
+
+
+    <Button
+        android:id="@+id/btn_openBacklight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开背光" />
+
+    <Button
+        android:id="@+id/btn_closeBacklight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关闭背光" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/backlight"
+        android:gravity="center_horizontal">
+
+
+        <SeekBar
+            android:id="@+id/seekbar_backlight"
+            android:layout_width="@dimen/sy_270"
+            android:layout_height="@dimen/sy_60"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/sy_200"
+            android:indeterminateOnly="false"
+            android:max="100"
+            android:progressDrawable="@drawable/quick_seekbar_style"
+            android:thumbOffset="@dimen/sy_0" />
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sy_205"
+            android:layout_marginStart="@dimen/sy_270"
+            android:textSize="34.0sp"
+            android:text="100" />
+    </RelativeLayout>
+
+</LinearLayout>

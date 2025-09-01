@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">System Control</string>
+    <string name="permission_description">the common permission of TV app</string>
+
+    <string name="backlight">Backlight</string>
+
+
+    <string name="factory_menu"> FactoryMenu</string>
+</resources>
