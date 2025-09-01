@@ -1,6 +1,5 @@
 package android.app;
 
-
 import android.annotation.SuppressLint;
 import android.app.util.AIDLUtil;
 import android.app.util.SerialPortUtil;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 
 //import com.app.sdk_api_service.IAidlInterface;
 //import com.hisilicon.android.tvapi.HitvManager;

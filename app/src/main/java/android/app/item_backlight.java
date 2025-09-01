@@ -21,6 +21,7 @@ public class item_backlight extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(1);
+        System.loadLibrary("hi_tv_jni");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_backlight);
         jx_sysControl = SysControl.GetInstance();

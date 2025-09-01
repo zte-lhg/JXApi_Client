@@ -45,9 +45,9 @@ public class AIDLUtil {
 
     public void bindService(Context context) {
         Intent intent = new Intent("com.app.sdk_api_service");
-       intent.setPackage("com.app.sdk_api_service");
-       // Intent intent = new Intent("com.leo.aidl");
-       // intent.setPackage("com.leo.aidl");
+        intent.setPackage("com.app.sdk_api_service");
+        // Intent intent = new Intent("com.leo.aidl");
+        // intent.setPackage("com.leo.aidl");
 
 //        context.bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
@@ -173,6 +173,7 @@ public class AIDLUtil {
         }
         return null;
     }
+
     public void ax_setSourceHolder(String holder) {
         if (null == iService) {
             Log.i("LEO", "iService为null");
@@ -183,7 +184,6 @@ public class AIDLUtil {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-
     }
 
     public int ax_setBootSource(int  var) {

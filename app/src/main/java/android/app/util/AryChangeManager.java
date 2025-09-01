@@ -1,12 +1,7 @@
 package android.app.util;
 import android.util.Log;
 
-/**
- * Created by Norton on 2017/6/16.
- */
-
 public class AryChangeManager {
-
     /**
      * 十六进制数组转byte数组
      *
@@ -121,7 +116,6 @@ public class AryChangeManager {
 
     /**
      * 将10进制数转对应的16进制的字符串显示
-     *
      * @param i 要进行转换显示的十进制数
      * @return 对应的十六进制数
      */
@@ -163,8 +157,7 @@ public class AryChangeManager {
         return builder.toString();
     }
 
-
-    //byte数组转String
+    // byte数组转String
     public static String bytesToHexString(byte[] bArray) {
         StringBuffer sb = new StringBuffer(bArray.length);
         String sTemp;
