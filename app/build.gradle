@@ -5,6 +5,12 @@ plugins {
 android {
     compileSdkVersion 32
 
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jnilibs']
+        }
+    }
+
     defaultConfig {
         applicationId "android.app"
         minSdkVersion 26
