@@ -8,13 +8,13 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 
-//import com.app.sdk_api_service.IAidlInterface;
+import com.jingxin.api.IJXApiService;
 
 import androidx.annotation.NonNull;
 
 public class AIDLUtil {
     private static AIDLUtil aidlUtil;
-//    private IAidlInterface iService;
+    private IJXApiService iService;
 
     private AIDLUtil() {
     }
@@ -30,26 +30,23 @@ public class AIDLUtil {
         return aidlUtil;
     }
 
-//    private ServiceConnection connection = new ServiceConnection() {
-//        @Override
-//        public void onServiceConnected(ComponentName name, IBinder service) {
-//            Log.i("LEO", "绑定成功");
-////            iService = IAidlInterface.Stub.asInterface(service);
-//        }
-//
-//        @Override
-////        public void onServiceDisconnected(ComponentName name) {
-////            iService = null;
-////        }
-//    };
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            Log.i("LEO", "绑定成功");
+            iService = IJXApiService.Stub.asInterface(service);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            iService = null;
+        }
+    };
 
     public void bindService(Context context) {
         Intent intent = new Intent("com.app.sdk_api_service");
         intent.setPackage("com.app.sdk_api_service");
-        // Intent intent = new Intent("com.leo.aidl");
-        // intent.setPackage("com.leo.aidl");
-
-//        context.bindService(intent, connection, Context.BIND_AUTO_CREATE);
+        context.bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
     public void unbindService(Context context) {
