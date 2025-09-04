@@ -41,12 +41,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //绑定服务
+        // 绑定服务
         AIDLUtil.getInstance().bindService(MainActivity.this);
 
-
-        //串口初始化
-        //需要延时一下，绑定api服务需要时间
+        // 串口初始化
+        // 需要延时一下，绑定api服务需要时间
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

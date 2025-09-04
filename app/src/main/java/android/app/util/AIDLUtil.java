@@ -10,8 +10,6 @@ import android.util.Log;
 
 import com.jingxin.api.IJXApiService;
 
-import androidx.annotation.NonNull;
-
 public class AIDLUtil {
     private static AIDLUtil aidlUtil;
     private IJXApiService iService;
@@ -44,18 +42,19 @@ public class AIDLUtil {
     };
 
     public void bindService(Context context) {
-        Intent intent = new Intent("com.app.sdk_api_service");
-        intent.setPackage("com.app.sdk_api_service");
+        Log.i("LEO", "bindService on MainActivity");
+        Intent intent = new Intent("com.jingxin.api");
+        intent.setPackage("com.jingxin.api");
         context.bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
     public void unbindService(Context context) {
-//        if (null == iService) {
-//            return;
-//        }
-//        Log.i("LEO", "取消绑定");
-//        context.unbindService(connection);
-//        iService = null;
+        if (null == iService) {
+            return;
+        }
+        Log.i("LEO", "取消绑定");
+        context.unbindService(connection);
+        iService = null;
     }
 
     /*
@@ -78,55 +77,55 @@ public class AIDLUtil {
      */
 
     public Integer ax_getBacklight() {
-//        if (null == iService) {
-//            Log.i("LEO", "iService为null");
-//            return null;
-//        }
-//        try {
-//            int data = iService.ax_getBacklight();
-//            return data;
-//        } catch (RemoteException e) {
-//            e.printStackTrace();
-//        }
+        if (null == iService) {
+            Log.i("LEO", "iService为null");
+            return null;
+        }
+        try {
+            int data = iService.getBacklight();
+            return data;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
         return null;
     }
     public void ax_setBacklight(int data) {
-//        if (null == iService) {
-//            Log.i("LEO", "iService为null");
-//            return ;
-//        }
-//        try {
-//           iService.ax_setBacklight(data);
-//
-//        } catch (RemoteException e) {
-//            e.printStackTrace();
-//        }
+        if (null == iService) {
+            Log.i("LEO", "iService为null");
+            return ;
+        }
+        try {
+           iService.setBacklight(data);
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     public void ax_EnableUart(Boolean flag) {
-//        if (null == iService) {
-//            Log.i("LEO", "iService为null");
-//            return ;
-//        }
-//        try {
-//            iService.ax_EnableUart(flag);
-//
-//        } catch (RemoteException e) {
-//            e.printStackTrace();
-//        }
+        if (null == iService) {
+            Log.i("LEO", "iService为null");
+            return ;
+        }
+        try {
+            iService.enableUart(flag);
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     public void ax_EnableBacklight(Boolean flag) {
-//        if (null == iService) {
-//            Log.i("LEO", "iService为null");
-//            return ;
-//        }
-//        try {
-//            iService.ax_EnableBacklight(flag);
-//
-//        } catch (RemoteException e) {
-//            e.printStackTrace();
-//        }
+        if (null == iService) {
+            Log.i("LEO", "iService为null");
+            return ;
+        }
+        try {
+            iService.enableBacklight(flag);
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 /*
     public int ax_getCurSourceId(int var1) {

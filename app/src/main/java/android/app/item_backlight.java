@@ -21,7 +21,6 @@ public class item_backlight extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(1);
-        System.loadLibrary("hi_tv_jni");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_backlight);
         jx_sysControl = SysControl.GetInstance();
@@ -66,7 +65,8 @@ public class item_backlight extends Activity implements View.OnClickListener {
                     case R.id.seekbar_backlight:
                         try {
                             Log.i(TAG, "设置背光s");
-                            jx_sysControl.setBrightness(progress);
+                            AIDLUtil.getInstance().ax_setBacklight(progress);
+
                             Log.i(TAG, "pic.setBacklight()=" + progress);
                             TextView textView = tv_brightness;
                             textView.setText("" + String.valueOf(progress));
@@ -92,7 +92,7 @@ public class item_backlight extends Activity implements View.OnClickListener {
             case R.id.btn_closeBacklight:
                 try {
                     Log.i(TAG, "关闭背光");
-                    jx_sysControl.setLcdBackLight(0);
+                    AIDLUtil.getInstance().ax_EnableBacklight(false);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -100,7 +100,7 @@ public class item_backlight extends Activity implements View.OnClickListener {
             case  R.id.btn_openBacklight:
                 try {
                     Log.i(TAG, "打开背光");
-                    jx_sysControl.setLcdBackLight(1);
+                    AIDLUtil.getInstance().ax_EnableBacklight(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
