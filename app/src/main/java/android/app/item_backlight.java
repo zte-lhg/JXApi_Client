@@ -63,7 +63,6 @@ public class item_backlight extends Activity implements View.OnClickListener {
                     try {
                         Log.i(TAG, "设置背光s");
                         AIDLUtil.getInstance().ax_setBacklight(progress * 2);
-
                         Log.i(TAG, "pic.setBacklight()=" + progress);
                         TextView textView = tv_brightness;
                         textView.setText("" + progress);
@@ -72,9 +71,7 @@ public class item_backlight extends Activity implements View.OnClickListener {
                     } finally {
                         System.out.println("无论是否发生异常，finally 块中的代码都会执行。");
                     }
-                    return;
                 }
-                return;
             }
         });
     }
@@ -108,7 +105,6 @@ public class item_backlight extends Activity implements View.OnClickListener {
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "Destroy!");
-        // 解绑服务
         AIDLUtil.getInstance().unbindService(item_backlight.this);
     }
 }

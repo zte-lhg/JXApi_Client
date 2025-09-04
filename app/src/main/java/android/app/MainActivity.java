@@ -14,7 +14,6 @@ import android.widget.ListView;
 
 import androidx.annotation.RequiresApi;
 
-
 /*
  * 本项目为 晶心安卓单板系统 API 测试参考调用方法。
  * 安装方法 ：adb install -t ./app/build/outputs/apk/debug/JXApiTest.apk
@@ -25,11 +24,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private ListView listView;
     private final String[] data = {"背光"};
     // 端口
-    private String port;//串口号
-    private int baud;//波特率
-    private int check;//校验位
-    private int databyte;//数据位
-    private int stop;//停止位
+    private String port;     // 串口号
+    private int baud;        // 波特率
+    private int check;       // 校验位
+    private int datatable;   // 数据位
+    private int stop;        // 停止位
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
@@ -65,7 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void openSerial() {
         try {
             getSerialPortSetting();
-            SerialPortUtil.openSerialPort(getApplicationContext(), port, baud, check, databyte, stop);
+            SerialPortUtil.openSerialPort(getApplicationContext(), port, baud, check, datatable, stop);
         } catch (Exception e) {
 //            e.printStackTrace();
         }
@@ -84,7 +83,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     check = 0;
                     break;
                 case 3:
-                    databyte = 8;
+                    datatable = 8;
                     break;
                 case 4:
                     stop = 1;
@@ -117,9 +116,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         break;
                     case 1:
                         Intent intent2 = new Intent();
-                        intent2.setClassName("com.hisilicon.tv.menu", "com.hisilicon.tv.menu.app.TvMenuActivity");
+                        intent2.setClassName(
+                                "com.hisilicon.tv.menu",
+                                "com.hisilicon.tv.menu.app.TvMenuActivity"
+                        );
                         startActivity(intent2);
-                        Log.e(TAG, "FactoryMenu start!");
+                        Log.e(TAG, "factoryMenu start!");
                         break;
                     default:
                         break;
