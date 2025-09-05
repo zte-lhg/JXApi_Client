@@ -1,7 +1,6 @@
 package android.app;
 
-import android.app.util.AIDLUtil;
-import android.app.util.SerialPortUtil;
+import jxapi.SerialPortUtil;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,20 +34,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AIDLUtil.getInstance().bindService(MainActivity.this);
-
-        // 串口初始化
-        // 需要延时一下，绑定 api 服务需要时间
+        AidlUtils.getInstance().bindService(MainActivity.this);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                // 延迟执行的操作
                 try {
+                    // 初始化使能串口ttyAMA1
                     init_ttyAMA1();
                 } catch (Exception e) {
-                    Log.i(TAG, "串口使能失败");
+                    Log.e(TAG, "串口使能失败");
                 }
             }
-        }, 50); // 50ms 延迟
+        }, 50);
 
         // 界面初始化
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -56,17 +54,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
         listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
         initClick();
-
-        // 打开串口
-        openSerial();
     }
 
     public void openSerial() {
         try {
             getSerialPortSetting();
-            SerialPortUtil.openSerialPort(getApplicationContext(), port, baud, check, datatable, stop);
+            SerialPortUtil.openSerialPort(
+                    getApplicationContext(),
+                    port,
+                    baud,
+                    check,
+                    datatable,
+                    stop
+            );
         } catch (Exception e) {
-//            e.printStackTrace();
+            Log.e("JingXin", "iService openSerialPort exception");
         }
     }
 
@@ -95,7 +97,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void init_ttyAMA1() {
         Log.e(TAG, "使能串口ttyAMA1");
         try {
-            AIDLUtil.getInstance().ax_EnableUart(false);
+            AidlUtils.getInstance().enableUart(false);
         } catch (Exception e) {
             Log.e(TAG, "使能串口失败");
             finish();
@@ -110,8 +112,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        Intent intent_item_backlight = new Intent(MainActivity.this, item_backlight.class);
-                        startActivity(intent_item_backlight);
+                        Intent backlight_view = new Intent(MainActivity.this, BacklightView.class);
+                        startActivity(backlight_view);
                         Log.e(TAG, "item_backlight start!");
                         break;
                     case 1:
@@ -140,6 +142,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onDestroy();
         Log.i(TAG, "Destroy!");
         //解绑服务
-        AIDLUtil.getInstance().unbindService(MainActivity.this);
+        AidlUtils.getInstance().unbindService(MainActivity.this);
     }
 }

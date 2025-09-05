@@ -1,7 +1,6 @@
 package android.app;
 
 import android.annotation.SuppressLint;
-import android.app.util.AIDLUtil;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -10,7 +9,7 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class item_backlight extends Activity implements View.OnClickListener {
+public class BacklightView extends Activity implements View.OnClickListener {
     private static final String TAG = "item_backlight";
     private SeekBar seekbar_backlight;
     private TextView tv_brightness;
@@ -34,7 +33,7 @@ public class item_backlight extends Activity implements View.OnClickListener {
             public void run() {
                 // 延迟执行的操作
                 try {
-                   int progress = AIDLUtil.getInstance().ax_getBacklight();
+                   int progress = AidlUtils.getInstance().getBacklight();
                     Log.i(TAG, "progress="+progress);
                     seekbar_backlight.setProgress(progress);
                     tv_brightness.setText(String.valueOf(progress));
@@ -62,7 +61,7 @@ public class item_backlight extends Activity implements View.OnClickListener {
                 if (seekBar.getId() == R.id.seekbar_backlight) {
                     try {
                         Log.i(TAG, "设置背光s");
-                        AIDLUtil.getInstance().ax_setBacklight(progress * 2);
+                        AidlUtils.getInstance().setBacklight(progress * 2);
                         Log.i(TAG, "pic.setBacklight()=" + progress);
                         TextView textView = tv_brightness;
                         textView.setText("" + progress);
@@ -83,7 +82,7 @@ public class item_backlight extends Activity implements View.OnClickListener {
             case R.id.btn_closeBacklight:
                 try {
                     Log.i(TAG, "关闭背光");
-                    AIDLUtil.getInstance().ax_EnableBacklight(false);
+                    AidlUtils.getInstance().enableBacklight(false);
                 } catch (Exception e) {
                     Log.i(TAG, "AIDLUtil 关闭背光失败");
                 }
@@ -91,7 +90,7 @@ public class item_backlight extends Activity implements View.OnClickListener {
             case  R.id.btn_openBacklight:
                 try {
                     Log.i(TAG, "打开背光");
-                    AIDLUtil.getInstance().ax_EnableBacklight(true);
+                    AidlUtils.getInstance().enableBacklight(true);
                 } catch (Exception e) {
                     Log.i(TAG, "AIDLUtil 打开背光失败");
                 }
@@ -105,6 +104,6 @@ public class item_backlight extends Activity implements View.OnClickListener {
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "Destroy!");
-        AIDLUtil.getInstance().unbindService(item_backlight.this);
+        AidlUtils.getInstance().unbindService(BacklightView.this);
     }
 }
