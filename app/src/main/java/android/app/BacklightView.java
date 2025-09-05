@@ -18,7 +18,7 @@ public class BacklightView extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(1);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_backlight);
+        setContentView(R.layout.backlight);
         this.seekbar_backlight = findViewById(R.id.seekbar_backlight);
 
         Button btn_openBacklight = findViewById(R.id.btn_openBacklight);

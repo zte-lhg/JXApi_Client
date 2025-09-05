@@ -10,7 +10,6 @@
         android:description="@string/permission_description"
         android:protectionLevel="signatureOrSystem"/>
 
-
     <uses-permission android:name="com.jingxin.api.permission.ACCESS_SDK_API_SERVICE" />
     <application
         android:allowBackup="true"
