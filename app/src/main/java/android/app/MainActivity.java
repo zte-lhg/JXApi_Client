@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import jxapi.SysControl;
 
 import androidx.annotation.RequiresApi;
 
@@ -54,6 +55,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
         initClick();
+        Log.i(TAG, "system device is " + sysControl.getDeviceID());
+        Log.i(TAG, "system sdk version is " + sysControl.getSDKVersion());
+        Log.i(TAG, "system sdk firmware version is " + sysControl.getFirmwareVersion());
+        Log.i(TAG, "system sdk getDisplayOrientation is " + sysControl.getDisplayOrientation());
+        Log.i(TAG, "system sdk getSystemMaxBrightness is " + sysControl.getSystemMaxBrightness());
     }
 
     public void openSerial() {

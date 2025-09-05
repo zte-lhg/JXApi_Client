@@ -133,7 +133,15 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
    返回值：gpio 口打开状态
 
 ```java
+   import jxapi.SysControl;
 
+   SysControl sysControl = SysControl.GetInstance();
+   SysControl sysControl = SysControl.GetInstance();
+   sysControl.getGpioValue(port);
+   sysControl.setGpioValue(port, value);
+   sysControl.getGpioValue(port, direction);
+   sysControl.setGpioValue(port, value);
+   
 ```
 
 
@@ -144,5 +152,10 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
    返回值：gpio 口打开状态
 
 ```java
+   import jxapi.SysControl;
 
+    SysControl sysControl = SysControl.GetInstance();
+    Log.i(TAG, "system device is " + sysControl.getDeviceID());
+    Log.i(TAG, "system sdk version is " + sysControl.getSDKVersion());
+    
 ```
