@@ -12,7 +12,7 @@ import com.jingxin.api.IJXApiService;
 
 public class AidlUtils {
     private IJXApiService iService;
-    private static final String TAG = "JingXin";
+    private static final String TAG = "JxApiTest";
 
     private AidlUtils() {
     }
@@ -99,6 +99,56 @@ public class AidlUtils {
             iService.enableBacklight(flag);
         } catch (RemoteException e) {
             Log.e(TAG, "iService enableBacklight exception");
+        }
+    }
+
+    public Integer getPanelFlipMirror() {
+        if (null == iService) {
+            Log.i(TAG, "iService为null");
+            return null;
+        }
+        try {
+             return iService.getPanelFlipMirror();
+        } catch (RemoteException e) {
+            Log.e(TAG, "iService getPanelFlipMirror exception");
+        }
+        return null;
+    }
+
+    public void setPanelFlipMirror(int du) {
+        if (null == iService) {
+            Log.i(TAG, "iService为null");
+            return ;
+        }
+        try {
+            iService.setPanelFlipMirror(du);
+        } catch (RemoteException e) {
+            Log.e(TAG, "iService setPanelFlipMirror exception");
+        }
+    }
+
+    public Integer getWindowRotation() {
+        if (null == iService) {
+            Log.i(TAG, "iService为null");
+            return null;
+        }
+        try {
+            return iService.getWindowRotation();
+        } catch (RemoteException e) {
+            Log.e(TAG, "iService getWindowRotation exception");
+        }
+        return null;
+    }
+
+    public void setWindowRotation(int rotation) {
+        if (null == iService) {
+            Log.i(TAG, "iService为null");
+            return ;
+        }
+        try {
+            iService.setWindowRotation(rotation);
+        } catch (RemoteException e) {
+            Log.e(TAG, "iService setWindowRotation exception");
         }
     }
 }

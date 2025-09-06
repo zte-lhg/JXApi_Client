@@ -20,8 +20,9 @@ import androidx.annotation.RequiresApi;
  * 启动方法 ：adb shell am start -n android.app/.MainActivity
  */
 public class MainActivity extends Activity implements View.OnClickListener {
-    private final String TAG = "JXAPIClient";
+    private final String TAG = "JxApiTest";
     private ListView listView;
+
     private final String[] data = {"背光"};
     // 端口
     private String port;     // 串口号
@@ -55,7 +56,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
         initClick();
-        Log.i(TAG, "system device is " + sysControl.getDeviceID());
+        SysControl sysControl = SysControl.GetInstance();
+
+        Log.i(TAG, "system device id is " + sysControl.getDeviceID());
         Log.i(TAG, "system sdk version is " + sysControl.getSDKVersion());
         Log.i(TAG, "system sdk firmware version is " + sysControl.getFirmwareVersion());
         Log.i(TAG, "system sdk getDisplayOrientation is " + sysControl.getDisplayOrientation());

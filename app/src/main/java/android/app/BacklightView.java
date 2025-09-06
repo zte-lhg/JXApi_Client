@@ -10,7 +10,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class BacklightView extends Activity implements View.OnClickListener {
-    private static final String TAG = "item_backlight";
+    private static final String TAG = "JxApiTest";
     private SeekBar seekbar_backlight;
     private TextView tv_brightness;
 
@@ -23,8 +23,10 @@ public class BacklightView extends Activity implements View.OnClickListener {
 
         Button btn_openBacklight = findViewById(R.id.btn_openBacklight);
         Button btn_closeBacklight = findViewById(R.id.btn_closeBacklight);
+        Button btn_testApi = findViewById(R.id.btn_testApi);
         btn_openBacklight.setOnClickListener(this);
         btn_closeBacklight.setOnClickListener(this);
+        btn_testApi.setOnClickListener(this);
 
         tv_brightness = findViewById(R.id.tv_progress);
 
@@ -94,6 +96,34 @@ public class BacklightView extends Activity implements View.OnClickListener {
                 } catch (Exception e) {
                     Log.i(TAG, "AIDLUtil 打开背光失败");
                 }
+                break;
+            case  R.id.btn_testApi:
+                try {
+                    Log.i(TAG, "依次测试各个接口");
+                    AidlUtils.getInstance().enableBacklight(false);
+                    Log.i(TAG, "disableBacklight ");
+
+                    AidlUtils.getInstance().enableBacklight(true);
+                    Log.i(TAG, "enableBacklight ");
+
+                    int backlight = AidlUtils.getInstance().getBacklight();
+                    Log.i(TAG, "current backlight is " + backlight);
+
+                    int flipMirror = AidlUtils.getInstance().getPanelFlipMirror();
+                    Log.i(TAG, "current system getPanelFlipMirror is " + flipMirror);
+
+                    AidlUtils.getInstance().setPanelFlipMirror(flipMirror);
+                    Log.i(TAG, "current system setPanelFlipMirror " + flipMirror);
+
+                    int rotation = AidlUtils.getInstance().getWindowRotation();
+                    Log.i(TAG, "current system getWindowRotation is " + rotation);
+
+                    AidlUtils.getInstance().setWindowRotation(rotation);
+                    Log.i(TAG, "current system setWindowRotation " + rotation);
+                } catch (Exception e) {
+                    Log.i(TAG, "AIDLUtil 接口测试异常");
+                }
+                Log.i(TAG, "all case test pass!!");
                 break;
             default:
                 break;

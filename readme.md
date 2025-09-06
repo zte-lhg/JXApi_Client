@@ -76,7 +76,11 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
 4. 获取面板翻转状态
    方法签名：int getPanelFlipMirror() throws RemoteException
    功能描述：获取当前面板的翻转状态
-   返回值：int 类型，面板翻转状态值（具体含义取决于硬件实现）
+   返回值：int 类型，面板翻转状态值
+          0: MIRROR_FLIP_OFF;
+          1: MIRROR_FLIP_MIRROR;
+          2: MIRROR_FLIP_FLIP;
+          3: MIRROR_FLIP_MIRROR_FLIP;
 
 ```java
     try {
@@ -90,7 +94,12 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
 5. 设置面板翻转
    方法签名：void setPanelFlipMirror(int du) throws RemoteException
    功能描述：设置面板的翻转模式
-   参数：du - 翻转模式值（具体含义取决于硬件实现）
+   参数：du - 翻转模式值
+        0: MIRROR_FLIP_OFF;
+        1: MIRROR_FLIP_MIRROR;
+        2: MIRROR_FLIP_FLIP;
+        3: MIRROR_FLIP_MIRROR_FLIP;
+
 ```java
     try {
         iService.setPanelFlipMirror(1); // 设置特定的面板翻转模式
@@ -102,7 +111,11 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
 6. 获取窗口旋转角度
    方法签名：int getWindowRotation() throws RemoteException
    功能描述：获取当前窗口的旋转角度
-   返回值：int 类型，旋转角度（通常为 0、90、180、270 等）
+   返回值：int 类型，旋转角度 0、90、180、270 等）
+          VO_ROTATION_0         = 0;
+          VO_ROTATION_90        = 1;
+          VO_ROTATION_180       = 2;
+          VO_ROTATION_270       = 3;
 
 ```java
     try {
@@ -116,7 +129,7 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
 7. 设置窗口旋转角度
    方法签名：int setWindowRotation(int rotation) throws RemoteException
    功能描述：设置窗口的旋转角度
-   参数：rotation - 目标旋转角度（通常为 0、90、180、270 等）
+   参数：rotation - 目标旋转角度（0、90、180、270 ）同上
    返回值：int 类型，实际设置的旋转角度（可能与请求值不同）
 ```java
     try {
@@ -188,4 +201,29 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
     SysControl sysControl = SysControl.GetInstance();
     Log.i(TAG, "system deviceID is " + sysControl.getDeviceID();
 
+```
+## 自测
+目前除了 gpio 需要提供对应的 gpio 编号外，其他接口都已经测试，测试日志如下：
+
+```json
+09-06 19:53:58.795  7450  7450 I JxApiTest: system device id is 0000000000000000
+09-06 19:53:58.796  7450  7450 I JxApiTest: system sdk version is 28
+09-06 19:53:58.803  7450  7450 I JxApiTest: system sdk firmware version is 
+09-06 19:53:58.809  7450  7450 I JxApiTest: system sdk getDisplayOrientation is landscape
+09-06 19:53:58.810  7450  7450 I JxApiTest: system sdk getSystemMaxBrightness is 255
+09-06 19:53:58.868  7450  7450 I JxApiTest: 绑定成功
+09-06 19:53:58.870  7450  7450 E JxApiTest: 使能串口ttyAMA1
+09-06 19:54:07.401  7450  7450 E JxApiTest: item_backlight start!
+09-06 19:54:08.275  7450  7450 I JxApiTest: progress=100
+09-06 19:54:08.282  7450  7450 I JxApiTest: 设置背光s
+09-06 19:54:08.297  7450  7450 I JxApiTest: pic.setBacklight()=100
+09-06 19:54:14.045  7450  7450 I JxApiTest: 依次测试各个接口
+09-06 19:54:14.053  7450  7450 I JxApiTest: disableBacklight 
+09-06 19:54:14.060  7450  7450 I JxApiTest: enableBacklight 
+09-06 19:54:14.067  7450  7450 I JxApiTest: current backlight is 100
+09-06 19:54:14.076  7450  7450 I JxApiTest: current system getPanelFlipMirror is 0
+09-06 19:54:14.099  7450  7450 I JxApiTest: current system setPanelFlipMirror 0
+09-06 19:54:14.106  7450  7450 I JxApiTest: current system getWindowRotation is 0
+09-06 19:54:14.113  7450  7450 I JxApiTest: current system setWindowRotation 0
+09-06 19:54:14.113  7450  7450 I JxApiTest: all case test pass!!
 ```
