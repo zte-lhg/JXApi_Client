@@ -227,3 +227,10 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
 09-06 19:54:14.113  7450  7450 I JxApiTest: current system setWindowRotation 0
 09-06 19:54:14.113  7450  7450 I JxApiTest: all case test pass!!
 ```
+
+## API 开发部署方法
+0. adb connect 192.168.0.105:5555 连接单板，再执行 adb root, adb remount 重新读写挂载 system 分区
+1. 将 JxApiService.apk adb push 到 /system/app 目录下
+2. 将 JxApi.jar 引用应用开发主目录 app/libs 目录下
+3. java 应用开发即可引用 import com.jingxin.api.IJXApiService 及  import jxapi.SysControl 包下的接口函数
+4. 详细函数调用方式参考 接口列表及调用说明
