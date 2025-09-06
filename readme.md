@@ -127,7 +127,7 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
     }
 ```
 8. GPIO 端口的控制
-   方法签名：boolean openPortStr(String strPort)
+   方法签名：boolean openPortStr(String strPort)(其他相关接口操作方式类似)
    功能描述：打开 gpio 口
    参数：strPort - gpio 口的名称
    返回值：gpio 口打开状态
@@ -136,16 +136,19 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
    import jxapi.SysControl;
 
    SysControl sysControl = SysControl.GetInstance();
-   SysControl sysControl = SysControl.GetInstance();
    sysControl.getGpioValue(port);
    sysControl.setGpioValue(port, value);
    sysControl.getGpioValue(port, direction);
-   sysControl.setGpioValue(port, value);
+   上面接口直接使用 gpio 的端口号设置 gpio 值，比如 gpio126
    
+   sysControl.setGpioValue(String port, int value);
+   sysControl.getGpioValue(String port, String direction);
+   sysControl.setGpioDirection(String port, String direction);
+   sysControl.getGpioDirection(String port);
+   上面接口使用 gpio 的字符串设置 gpio 值，接口内部会做自动转换 比如 GPIO7_B5，内部会自动做转换
 ```
 
-
-9. 系统设备ID 获取
+9. 系统设备 ID 获取
    方法签名：boolean openPortStr(String strPort)
    功能描述：打开 gpio 口
    参数：strPort - gpio 口的名称
@@ -158,4 +161,31 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
     Log.i(TAG, "system device is " + sysControl.getDeviceID());
     Log.i(TAG, "system sdk version is " + sysControl.getSDKVersion());
     
+```
+
+10. 获取系统属性
+   方法签名：String getSystemProperty(String property, String defaultValue)
+   功能描述：打开 gpio 口
+   参数：1. property - 属性名称
+        2. defaultValue --- 默认属性名
+   返回值：返回系统属性名称
+
+```java
+   import jxapi.SysControl;
+
+    SysControl sysControl = SysControl.GetInstance();
+    Log.i(TAG, "system device is " + sysControl.getSystemProperty("persist.prop.screenorientation", "landscape");
+```
+11. 获取系统 DeviceID
+    方法签名：String getDeviceID()
+    功能描述：获取系统设备的 deviceID
+    参数：无
+    返回值：返回系统单板芯片唯一 serialID 串口，每个芯片唯一
+
+```java
+   import jxapi.SysControl;
+
+    SysControl sysControl = SysControl.GetInstance();
+    Log.i(TAG, "system deviceID is " + sysControl.getDeviceID();
+
 ```
