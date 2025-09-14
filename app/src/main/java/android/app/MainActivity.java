@@ -56,6 +56,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
         initClick();
+        /*
         SysControl sysControl = SysControl.GetInstance();
 
         Log.i(TAG, "system device id is " + sysControl.getDeviceID());
@@ -63,6 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Log.i(TAG, "system sdk firmware version is " + sysControl.getFirmwareVersion());
         Log.i(TAG, "system sdk getDisplayOrientation is " + sysControl.getDisplayOrientation());
         Log.i(TAG, "system sdk getSystemMaxBrightness is " + sysControl.getSystemMaxBrightness());
+         */
     }
 
     public void openSerial() {

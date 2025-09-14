@@ -151,4 +151,54 @@ public class AidlUtils {
             Log.e(TAG, "iService setWindowRotation exception");
         }
     }
+
+    public void setGpioValue(int port, int value) {
+        if (null == iService) {
+            Log.i(TAG, "iService为null");
+            return ;
+        }
+        try {
+            iService.setGpioValue(port, value);
+        } catch (RemoteException e) {
+            Log.e(TAG, "iService setGpioOutput exception");
+        }
+    }
+
+    public Integer getGpioValue(int port) {
+        if (null == iService) {
+            Log.i(TAG, "iService为null");
+            return null;
+        }
+        try {
+            return iService.getGpioValue(port);
+        } catch (RemoteException e) {
+            Log.e(TAG, "iService setWindowRotation exception");
+        }
+        return null;
+    }
+
+    public void setGpioDirection(int port, int direction) {
+        if (null == iService) {
+            Log.i(TAG, "iService为null");
+            return ;
+        }
+        try {
+            iService.setGpioDirection(port, direction);
+        } catch (RemoteException e) {
+            Log.e(TAG, "iService setWindowRotation exception");
+        }
+    }
+
+    public Integer getGpioRotation(int port) {
+        if (null == iService) {
+            Log.i(TAG, "iService为null");
+            return null;
+        }
+        try {
+            return iService.getGpioDirection(port);
+        } catch (RemoteException e) {
+            Log.e(TAG, "iService setWindowRotation exception");
+        }
+        return null;
+    }
 }

@@ -228,6 +228,49 @@ JxApi 是基于 hi3751 晶心开发单板提供设备硬件控制与系统参数
 09-06 19:54:14.113  7450  7450 I JxApiTest: all case test pass!!
 ```
 
+
+GPIO 设置读写测试，测试日志日志：
+```json
+09-14 11:22:01.379  5047  5087 I HiMW_TVClient: [invoke:53] =============invoke cmd = 0x803f=======begin=============
+09-14 11:22:01.382  1690  5155 I HiMW_logic_system_module: [SysSetGpioValue:849] [SysSetGpioValue] called, CusSetGpioValue port: 2, value: 0, return: 0
+09-14 11:22:01.382  5047  5087 I HiMW_TVClient: [invoke:65] =============invoke cmd = 0x803f=======end===============
+09-14 11:22:01.383  5047  5087 I HiMW_SystemSettingImpl: [SetGpioValue:606] UpdateBootLogo, execute successed   ret = 0
+09-14 11:22:01.385  5047  5087 D JXApiService: 设置 GPIO 的值: 33
+09-14 11:22:01.385  5047  5087 D HiMW_SystemSettingImpl: [getInstance:41] SystemSettingImpl  :com.hisilicon.android.tvapi.impl.SystemSettingImpl@25e5a64
+09-14 11:22:01.386  5047  5087 I HiMW_TVClient: [invoke:53] =============invoke cmd = 0x803f=======begin=============
+09-14 11:22:01.391  1690  5155 I HiMW_logic_system_module: [SysSetGpioValue:849] [SysSetGpioValue] called, CusSetGpioValue port: 33, value: 0, return: 0
+09-14 11:22:01.392  5047  5087 I HiMW_TVClient: [invoke:65] =============invoke cmd = 0x803f=======end===============
+09-14 11:22:01.393  5047  5087 I HiMW_SystemSettingImpl: [SetGpioValue:606] UpdateBootLogo, execute successed   ret = 0
+09-14 11:22:01.394  5047  5087 D JXApiService: 设置 GPIO 的值: 34
+09-14 11:22:01.395  5047  5087 D HiMW_SystemSettingImpl: [getInstance:41] SystemSettingImpl  :com.hisilicon.android.tvapi.impl.SystemSettingImpl@25e5a64
+09-14 11:22:01.395  5047  5087 I HiMW_TVClient: [invoke:53] =============invoke cmd = 0x803f=======begin=============
+09-14 11:22:01.399  1690  5155 I HiMW_logic_system_module: [SysSetGpioValue:849] [SysSetGpioValue] called, CusSetGpioValue port: 34, value: 0, return: 0
+09-14 11:22:01.399  5047  5087 I HiMW_TVClient: [invoke:65] =============invoke cmd = 0x803f=======end===============
+09-14 11:22:01.400  5047  5087 I HiMW_SystemSettingImpl: [SetGpioValue:606] UpdateBootLogo, execute successed   ret = 0
+09-14 11:22:01.402  5047  5087 D JXApiService: 获取 GPIO 的值: 2
+
+09-14 11:22:01.402  5047  5087 D HiMW_SystemSettingImpl: [getInstance:41] SystemSettingImpl  :com.hisilicon.android.tvapi.impl.SystemSettingImpl@25e5a64
+09-14 11:22:01.403  5047  5087 I HiMW_TVClient: [invoke:53] =============invoke cmd = 0x8040=======begin=============
+09-14 11:22:01.406  1690  5155 I HiMW_logic_system_module: [SysGetGpioValue:859] [SysGetGpioValue] called, CusGetGpioValue port: 2, value: 0, return: 0
+09-14 11:22:01.406  5047  5087 I HiMW_TVClient: [invoke:65] =============invoke cmd = 0x8040=======end===============
+09-14 11:22:01.408  5047  5087 I HiMW_SystemSettingImpl: [GetGpioValue:614] GetGpioValue, execute successed   ret = 0
+09-14 11:22:01.408  5638  5638 I JxApiTest: current GPIO2_0 getGpioValue 0
+09-14 11:22:01.409  5047  5087 D JXApiService: 获取 GPIO 的值: 33
+09-14 11:22:01.410  5047  5087 D HiMW_SystemSettingImpl: [getInstance:41] SystemSettingImpl  :com.hisilicon.android.tvapi.impl.SystemSettingImpl@25e5a64
+09-14 11:22:01.410  5047  5087 I HiMW_TVClient: [invoke:53] =============invoke cmd = 0x8040=======begin=============
+09-14 11:22:01.414  1690  5155 I HiMW_logic_system_module: [SysGetGpioValue:859] [SysGetGpioValue] called, CusGetGpioValue port: 33, value: 0, return: 0
+09-14 11:22:01.414  5047  5087 I HiMW_TVClient: [invoke:65] =============invoke cmd = 0x8040=======end===============
+09-14 11:22:01.415  5047  5087 I HiMW_SystemSettingImpl: [GetGpioValue:614] GetGpioValue, execute successed   ret = 0
+09-14 11:22:01.416  5638  5638 I JxApiTest: current GPIO4_1 getGpioValue 0
+09-14 11:22:01.417  5047  5087 D JXApiService: 获取 GPIO 的值: 34
+09-14 11:22:01.417  5047  5087 D HiMW_SystemSettingImpl: [getInstance:41] SystemSettingImpl  :com.hisilicon.android.tvapi.impl.SystemSettingImpl@25e5a64
+09-14 11:22:01.418  5047  5087 I HiMW_TVClient: [invoke:53] =============invoke cmd = 0x8040=======begin=============
+09-14 11:22:01.421  1690  5155 I HiMW_logic_system_module: [SysGetGpioValue:859] [SysGetGpioValue] called, CusGetGpioValue port: 34, value: 0, return: 0
+09-14 11:22:01.421  5047  5087 I HiMW_TVClient: [invoke:65] =============invoke cmd = 0x8040=======end===============
+09-14 11:22:01.422  5047  5087 I HiMW_SystemSettingImpl: [GetGpioValue:614] GetGpioValue, execute successed   ret = 0
+
+```
+
 ## API 开发部署方法
 0. adb connect 192.168.0.105:5555 连接单板，再执行 adb root, adb remount 重新读写挂载 system 分区
 1. 将 JxApiService.apk adb push 到 /system/app 目录下

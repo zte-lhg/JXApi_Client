@@ -120,6 +120,20 @@ public class BacklightView extends Activity implements View.OnClickListener {
 
                     AidlUtils.getInstance().setWindowRotation(rotation);
                     Log.i(TAG, "current system setWindowRotation " + rotation);
+
+                    AidlUtils.getInstance().setGpioDirection(2, 0);
+                    AidlUtils.getInstance().setGpioDirection(33, 0);
+                    AidlUtils.getInstance().setGpioDirection(34, 0);
+                    AidlUtils.getInstance().setGpioValue(2, 0);
+                    AidlUtils.getInstance().setGpioValue(33, 0);
+                    AidlUtils.getInstance().setGpioValue(34, 0);
+                    int val1 = AidlUtils.getInstance().getGpioValue(2);
+                    Log.i(TAG, "current GPIO2_0 getGpioValue " + val1);
+                    val1 = AidlUtils.getInstance().getGpioValue(33);
+                    Log.i(TAG, "current GPIO4_1 getGpioValue " + val1);
+                    val1 = AidlUtils.getInstance().getGpioValue(34);
+                    Log.i(TAG, "current GPIO4_2 getGpioValue " + val1);
+
                 } catch (Exception e) {
                     Log.i(TAG, "AIDLUtil 接口测试异常");
                 }
